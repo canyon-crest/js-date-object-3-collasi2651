@@ -7,7 +7,11 @@
 //  IMPORTANT: Use addEventListener() for the button.
 //  Do NOT add onclick in the HTML.
 // ============================================
-
+let d = new Date();
+let start = d.getTime();
+let running = true;
+const days=["Sunday", "Monday","Tuesday","Wednesday"];
+let day = days[d.getDay()];
 
 // ============================================
 //  WARM-UP: Day Name
@@ -70,7 +74,19 @@
 //          c) Display the elapsed time using .toFixed(3)
 //             in the element with ID "myTimer"
 
-
+myBtn.addEventListener('click',function(){
+if(running){
+    clearInterval(interval);
+running=false;
+}
+else{
+    interval=setInterval(TimeRanges, 10);
+    running = true;
+}});
+function time(){
+    myPara.innerHTML=((newDate().getTime()-start)/1000).toFixed(3);
+}
+let interval=setInterval(time,10);
 // ============================================
 //  PART 3: Start/Stop Toggle Button
 // ============================================
