@@ -82,7 +82,8 @@ running=false;
 else{
     interval=setInterval(TimeRanges, 10);
     running = true;
-}});
+}
+myPara.innerHTML=d.getMonth()+1+"/"+d.getDate()+"/"+d.getFullYear()});
 function time(){
     myPara.innerHTML=((newDate().getTime()-start)/1000).toFixed(3);
 }
