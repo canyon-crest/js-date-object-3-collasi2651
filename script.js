@@ -81,7 +81,10 @@ document.getElementById("myDate").innerHTML=month+"/"+date+"/"+year;
 
 
 let myBtn=document.getElementById("myBtn");
+document.getElementById("myTimer").innerHTML=d.getMonth()+1+"/"+d.getDate()+"/"+d.getFullYear();
+function time(){
     document.getElementById("myTimer").innerHTML=((new Date().getTime()-start)/1000).toFixed(3);
+}
 let interval=setInterval(time,10);
 
 
