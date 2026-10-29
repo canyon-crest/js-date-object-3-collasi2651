@@ -12,7 +12,7 @@ let start = d.getTime();
 let running = true;
 const days=["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 let day = days[d.getDay()];
-document.getElementById("warmUpDate").innerhtml=day;
+document.getElementById("warmUpDate").innerHTML=day;
 // ============================================
 //  WARM-UP: Day Name
 // ============================================
@@ -61,7 +61,7 @@ let now=new Date()
 let month = now.getMonth() +1;
 let date = now.getDate();
 let year = now.getFullYear();
-document.getElement("myDate").innerHTML=month+"/"+date+"/"+year;
+document.getElementById("myDate").innerHTML=month+"/"+date+"/"+year;
 //  PART 2: Elapsed Timer
 // ============================================
 // Build a timer that counts up from 0, updating every ~10ms.
@@ -80,12 +80,14 @@ document.getElement("myDate").innerHTML=month+"/"+date+"/"+year;
 //             in the element with ID "myTimer"
 
 
-let myBtn=document.getElementbyId("myBtn");
-myPara.innerHTML=d.getMonth()+1+"/"+d.getDate()+"/"+d.getFullYear();
+let myBtn=document.getElementById("myBtn");
+document.getElementById("myTimer").innerHTML=d.getMonth()+1+"/"+d.getDate()+"/"+d.getFullYear();
 function time(){
-    myPara.innerHTML=((newDate().getTime()-start)/1000).toFixed(3);
+    document.getElementById("myTimer").innerHTML=((new Date().getTime()-start)/1000).toFixed(3);
 }
 let interval=setInterval(time,10);
+
+
 myBtn.addEventListener('click',function(){
 if(running){
     clearInterval(interval);
@@ -93,7 +95,8 @@ if(running){
 running=false;
 }
 else{
-    interval=setInterval(TimeRanges, 10);
+    start=new Date().getTime();
+    interval=setInterval(time, 10);
     running = true;
     myBtn.innerHTML="Stop";
 }});
