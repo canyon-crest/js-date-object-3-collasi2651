@@ -10,9 +10,9 @@
 let d = new Date();
 let start = d.getTime();
 let running = true;
-const days=["Sunday", "Monday","Tuesday","Wednesday"];
+const days=["Sunday", "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 let day = days[d.getDay()];
-
+document.getElementById("warmUpDate").innerhtml=day;
 // ============================================
 //  WARM-UP: Day Name
 // ============================================
@@ -55,8 +55,13 @@ let day = days[d.getDay()];
 // STEP 10: Build the date string: month + "/" + day + "/" + year
 //          Display it in the element with ID "myDate"
 
-
 // ============================================
+
+let now=new Date()
+let month = now.getMonth() +1;
+let date = now.getDate();
+let year = now.getFullYear();
+document.getElement("myDate").innerHTML=month+"/"+date+"/"+year;
 //  PART 2: Elapsed Timer
 // ============================================
 // Build a timer that counts up from 0, updating every ~10ms.
@@ -74,20 +79,25 @@ let day = days[d.getDay()];
 //          c) Display the elapsed time using .toFixed(3)
 //             in the element with ID "myTimer"
 
+
+let myBtn=document.getElementbyId("myBtn");
+myPara.innerHTML=d.getMonth()+1+"/"+d.getDate()+"/"+d.getFullYear();
+function time(){
+    myPara.innerHTML=((newDate().getTime()-start)/1000).toFixed(3);
+}
+let interval=setInterval(time,10);
 myBtn.addEventListener('click',function(){
 if(running){
     clearInterval(interval);
+    myBtn.innerHTML="Start";
 running=false;
 }
 else{
     interval=setInterval(TimeRanges, 10);
     running = true;
-}
-myPara.innerHTML=d.getMonth()+1+"/"+d.getDate()+"/"+d.getFullYear()});
-function time(){
-    myPara.innerHTML=((newDate().getTime()-start)/1000).toFixed(3);
-}
-let interval=setInterval(time,10);
+    myBtn.innerHTML="Stop";
+}});
+
 // ============================================
 //  PART 3: Start/Stop Toggle Button
 // ============================================
